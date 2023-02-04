@@ -1,7 +1,7 @@
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
-import fileinclude from 'gulp-file-include';
+import fileInclude from 'gulp-file-include';
 
 import cleanCss from 'gulp-clean-css'; //стиснення файлу CSS
 import webpcss from 'gulp-webpcss'; // виведення WEBP зображень
@@ -19,11 +19,12 @@ export const scss = () => {
             message: "Error: <%= error.message %>"
         })
     ))
-    .pipe(fileinclude())
-    .pipe(app.plugins.replace(/@img\//g, 'img/'))
     .pipe(sass({
         outputStyle: 'expanded'
     }))
+    .pipe(fileInclude())
+    .pipe(app.plugins.replace(/@img\//g, '../img/'))
+
     .pipe(groupCssMediaQueries())
     .pipe(webpcss(
         {

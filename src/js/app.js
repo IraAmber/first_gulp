@@ -1,6 +1,5 @@
-console.log('hello');
-import * as flsFunction from "./modules/functions.js";
+import * as flsFunctions from "./modules/functions.js";
 
-flsFunction();
+flsFunctions.isWebp();
 
 import Swiper, { Navigation, Pagination } from 'swiper';
